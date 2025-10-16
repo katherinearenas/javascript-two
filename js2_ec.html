@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Extra Credit</title>
+  <style>
+    #stateBox {
+      border: 1px solid black;
+      width: 200px;
+      min-height: 50px;
+      padding: 5px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Extra Credit: Dynamic State List</h2>
+
+  <select id="stateList" size="10"></select>
+  <button id="addBtn">Add State</button>
+  <br><br>
+  <div id="stateBox"></div>
+  <br>
+  <button id="clearBtn">Clear States</button>
+
+  <script>
+    const allStates = [
+      "Alabama", "Alaska", "Arizona", "California", "Colorado",
+      "Florida", "Georgia", "Illinois", "New York", "Texas"
+    ];
+
+    const select = document.getElementById("stateList");
+    const box = document.getElementById("stateBox");
+    const addBtn = document.getElementById("addBtn");
+    const clearBtn = document.getElementById("clearBtn");
+
+    function populateSelect(list) {
+      select.innerHTML = "";
+      list.forEach(state => {
+        const opt = document.createElement("option");
+        opt.textContent = state;
+        select.appendChild(opt);
+      });
+    }
+
+    populateSelect(allStates);
+
+    let currentStates = [...allStates];
+    let addedStates = [];
+
+    addBtn.onclick = function() {
+      const chosen = select.value;
+      if (!chosen) return;
+      addedStates.push(chosen);
+      currentStates = currentStates.filter(s => s !== chosen);
+      populateSelect(currentStates);
+
+      const htmlList = addedStates.map((s, i) => `<li>${i + 1}. ${s}</li>`).join("");
+      box.innerHTML = `<ol>${htmlList}</ol>`;
+    };
+
+    clearBtn.onclick = function() {
+      addedStates = [];
+      currentStates = [...allStates];
+      populateSelect(currentStates);
+      box.innerHTML = "";
+    };
+  </script>
+</body>
+</html>

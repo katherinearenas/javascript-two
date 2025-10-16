@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem 2</title>
+</head>
+<body>
+  <h2>Problem 2: Word Counter</h2>
+  <div id="answer"></div>
+
+  <script>
+    const sentence = prompt("Enter a sentence:");
+    const words = sentence.split(" ");
+    const numWords = words.length;
+    document.getElementById("answer").textContent =
+      `Your sentence has ${numWords} word${numWords !== 1 ? "s" : ""}.`;
+  </script>
+</body>
+</html>

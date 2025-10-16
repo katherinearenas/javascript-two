@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem 4</title>
+</head>
+<body>
+  <h2>Problem 4: Greeting Form</h2>
+  <form>
+    <label>Enter your name:
+      <input type="text" id="username">
+    </label>
+    <br><br>
+    <input type="button" value="Hello" onclick="speak('Hello')">
+    <input type="button" value="Good Bye" onclick="speak('Good Bye')">
+    <input type="button" value="Greetings" onclick="speak('Greetings')">
+  </form>
+
+  <script>
+    function speak(prefix) {
+      const name = document.getElementById("username").value;
+      alert(`${prefix} ${name}`);
+    }
+  </script>
+</body>
+</html>

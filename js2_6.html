@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem 6</title>
+  <style>
+    #stateBox {
+      border: 1px solid black;
+      width: 200px;
+      min-height: 50px;
+      padding: 5px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Problem 6: State Selector</h2>
+
+  <select id="stateList" size="10"></select>
+  <button id="addBtn">Add State</button>
+  <br><br>
+  <div id="stateBox"></div>
+  <br>
+  <button id="clearBtn">Clear States</button>
+
+  <script>
+    const states = [
+      "Alabama", "Alaska", "Arizona", "California", "Colorado",
+      "Florida", "Georgia", "Illinois", "New York", "Texas"
+    ];
+
+    const select = document.getElementById("stateList");
+    const box = document.getElementById("stateBox");
+
+    // populate select
+    states.forEach(state => {
+      const opt = document.createElement("option");
+      opt.textContent = state;
+      select.appendChild(opt);
+    });
+
+    document.getElementById("addBtn").onclick = function() {
+      const chosen = select.value;
+      box.innerHTML += chosen + "<br>";
+    };
+
+    document.getElementById("clearBtn").onclick = function() {
+      box.innerHTML = "";
+    };
+  </script>
+</body>
+</html>

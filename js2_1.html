@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Problem 1</title>
+</head>
+<body>
+  <h2>Problem 1: Count numbers less than a value</h2>
+  <div id="answer"></div>
+
+  <script>
+    function count(arr, value) {
+      let num = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < value) {
+          num++;
+        }
+      }
+      return num;
+    }
+
+    function testCount() {
+      const numbers = [3, 55, 30, 28, 9, 12];
+      const val = 10;
+      const result = count(numbers, val);
+      document.getElementById("answer").textContent =
+        `In [${numbers}], there are ${result} numbers less than ${val}.`;
+    }
+
+    testCount();
+  </script>
+</body>
+</html>
